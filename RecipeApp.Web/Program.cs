@@ -18,7 +18,6 @@ builder.Services.AddDbContext<AppDbContext>(x =>
         opt.MigrationsAssembly(Assembly.GetAssembly(typeof(AppDbContext)).GetName().Name);
     });
 });
-//builder.Services.AddIdentity<AppUser,UserRole>().AddEntityFrameworkStores<AppDbContext>();
 builder.Services.AddIdentityWithExt();
 var app = builder.Build();
 
