@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using RecipeApp.Core.Models;
 using RecipeApp.Web.Models;
+using RecipeApp.Web.ViewModel;
 using System.Diagnostics;
 
 namespace RecipeApp.Web.Controllers
@@ -7,10 +10,11 @@ namespace RecipeApp.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly UserManager<AppUser> _userManager;
+        public HomeController(ILogger<HomeController> logger, UserManager<AppUser> userManager)
         {
             _logger = logger;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
@@ -31,6 +35,25 @@ namespace RecipeApp.Web.Controllers
 
         public IActionResult SignUp()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SignUp(SignUpViewModel model)
+        {
+            var user=await _userManager.CreateAsync(new AppUser()
+            {
+                UserName = model.UserName,
+                Email = model.Email
+            }, model.PasswordConfirmed);
+            if (user.Succeeded)
+            {
+                TempData["SuccessMessage"] = "Üyelik kayıt işlemi başarılı.";
+            }
+            foreach(var item in user.Errors) 
+            {
+                ModelState.AddModelError(string.Empty,item.Description);
+            }
             return View();
         }
 
