@@ -1,7 +1,24 @@
+using Microsoft.EntityFrameworkCore;
+using RecipeApp.Core.Models;
+using RecipeApp.Dal;
+using System.Reflection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
+
+builder.Services.AddDbContext<AppDbContext>(x =>
+{
+    x.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"), opt =>
+    {
+        opt.MigrationsAssembly(Assembly.GetAssembly(typeof(AppDbContext)).GetName().Name);
+    });
+});
+builder.Services.AddIdentity<AppUser,UserRole>().AddEntityFrameworkStores<AppDbContext>();
+
 
 var app = builder.Build();
 
