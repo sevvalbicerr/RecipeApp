@@ -19,6 +19,19 @@ builder.Services.AddDbContext<AppDbContext>(x =>
     });
 });
 builder.Services.AddIdentityWithExt();
+
+builder.Services.ConfigureApplicationCookie(opt =>
+{
+    var cookieBuilder= new CookieBuilder();
+    cookieBuilder.Name= "AppCookie";
+
+    opt.LoginPath = new PathString("/Home/SignIn");
+    opt.Cookie=cookieBuilder;
+    opt.ExpireTimeSpan = TimeSpan.FromDays(60);
+    opt.SlidingExpiration = true;
+    
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
