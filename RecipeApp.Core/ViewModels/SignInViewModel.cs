@@ -4,9 +4,12 @@ namespace RecipeApp.Core.ViewModel
 {
     public class SignInViewModel
     {
-        [Required(ErrorMessage ="Eposta giriniz!")]
-        [Display(Description ="Eposta")]
+        [EmailAddress(ErrorMessage = "Email Formatı yanlış")]
+        [Required(ErrorMessage = "Email boş bırakılamaz!")]
+        [Display(Name = "Email")]
         public string Email { get; set; }
+        [Required(ErrorMessage = "Parola boş bırakılamaz!")]
+        [Display(Name = "Parola")]
         public string Password { get; set; }
         public bool RememberMe { get; set; }
 
