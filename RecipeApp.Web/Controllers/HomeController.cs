@@ -41,7 +41,13 @@ namespace RecipeApp.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> SignUp(SignUpViewModel model)
         {
-            var user=await _userManager.CreateAsync(new AppUser()
+
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            var user=await _userManager.CreateAsync(new()
             {
                 UserName = model.UserName,
                 Email = model.Email

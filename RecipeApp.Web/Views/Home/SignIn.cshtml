@@ -13,15 +13,20 @@
                         <div class="card-body p-5">
                             <h2 class=" text-center mb-5">Giriş Yap</h2>
 
-                            <form>
+                            <form asp-controller="Home" asp-action="SignIn">
                                 <div class="form-outline mb-4">
-                                    <input asp-for="Email" type="email" class="form-control form-control-lg" />
                                     <label class="form-label" asp-for="Email">Eposta</label>
+
+                                    <input asp-for="Email" type="email" class="form-control form-control-lg" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <input asp-for="Password" type="password" class="form-control form-control-lg" />
                                     <label class="form-label" asp-for="Password">Parola</label>
+
+                                    <input asp-for="Password" type="password" class="form-control form-control-lg" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+
                                 </div>
                                 <div class="mb-3 form-check">
                                     <input class="form-check-input" asp-for="RememberMe">

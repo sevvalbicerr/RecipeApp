@@ -1,3 +1,4 @@
+using AspNetCore.Identity.Extensions;
 using Microsoft.EntityFrameworkCore;
 using RecipeApp.Core.Models;
 using RecipeApp.Dal;
@@ -17,9 +18,8 @@ builder.Services.AddDbContext<AppDbContext>(x =>
         opt.MigrationsAssembly(Assembly.GetAssembly(typeof(AppDbContext)).GetName().Name);
     });
 });
-builder.Services.AddIdentity<AppUser,UserRole>().AddEntityFrameworkStores<AppDbContext>();
-
-
+//builder.Services.AddIdentity<AppUser,UserRole>().AddEntityFrameworkStores<AppDbContext>();
+builder.Services.AddIdentityWithExt();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

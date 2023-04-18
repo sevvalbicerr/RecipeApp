@@ -4,6 +4,9 @@
 }
 
 @model SignUpViewModel
+@section Scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial");
+}
 <section class="vh-100 bg-image"
          style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
     <div class="mask d-flex align-items-center h-100 gradient-custom-3">
@@ -19,29 +22,37 @@
                                     @TempData["SuccessMessage"]
                                 </div>
                             }
-
+                           
                             <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
 
                             <form asp-controller="Home" asp-action="SignUp" method="post">
 
                                 <div class="form-outline mb-4">
-                                    <input asp-for="UserName" type="text"  class="form-control form-control-lg" />
-                                    <label class="form-label" asp-for="UserName">Kullanıcı Adı</label>
+                                    <label class="form-label" for="UserName" asp-for="UserName">Kullanıcı Adı</label>
+                                    <input asp-for="UserName"  class="form-control" />
+                                    <span asp-validation-for="UserName" class="text-danger"></span>
+
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <input asp-for="Email" type="email"  class="form-control form-control-lg" />
-                                    <label class="form-label" asp-for="Email">Eposta</label>
+                                    <label class="form-label" for="Email" asp-for="Email">Eposta</label>
+                                    <input asp-for="Email"  class="form-control " />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <input asp-for="Password" type="password"  class="form-control form-control-lg" />
-                                    <label class="form-label" asp-for="Password">Parola</label>
+                                    <label class="form-label" for="Password" asp-for="Password">Parola</label>
+                                    <input asp-for="Password" class="form-control form-control-lg" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <input asp-for="PasswordConfirmed" type="password" class="form-control form-control-lg" />
-                                    <label class="form-label" asp-for="PasswordConfirmed">Parola Tekrar</label>
+                                    <label class="form-label" for="Password" asp-for="PasswordConfirmed">Parola Tekrar</label>
+                                    <input asp-for="PasswordConfirmed" class="form-control form-control-lg" />
+                                    <span asp-validation-for="PasswordConfirmed" class="text-danger"></span>
+
                                 </div>
 
                                 <div class="form-check d-flex justify-content-center mb-5">
