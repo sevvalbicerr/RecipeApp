@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using RecipeApp.Core.Models;
 using RecipeApp.Web.Models;
-using RecipeApp.Core.ViewModel;
+using RecipeApp.Core.ViewModels;
 using System.Diagnostics;
 
 namespace RecipeApp.Web.Controllers

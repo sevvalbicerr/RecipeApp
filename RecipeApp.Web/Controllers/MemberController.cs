@@ -24,12 +24,13 @@ namespace RecipeApp.Web.Controllers
            return RedirectToAction("Index", "Home");
         }
 
-        public async Task<IActionResult> Profile()
+        public IActionResult Profile()
         {
-            return View();
+			//TODO:user bilgilerinin çekilmesi ve Update eklenecek
+			return View();
         }
-
-
+        
+      
 
     }
 }

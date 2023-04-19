@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RecipeApp.Core.ViewModel
+namespace RecipeApp.Core.ViewModels
 {
     public class SignUpViewModel
     {
