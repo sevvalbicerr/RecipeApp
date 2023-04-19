@@ -9,7 +9,7 @@ namespace AspNetCore.Identity.Extensions
     {
         public static void AddIdentityWithExt(this IServiceCollection services)
         {
-            services.AddIdentity<AppUser, UserRole>(opt =>
+            services.AddIdentity<User, UserRole>(opt =>
             {
                 opt.User.RequireUniqueEmail = true;
                 opt.User.AllowedUserNameCharacters = "abcdefghijklmnoprstuvwyz1234567890_";

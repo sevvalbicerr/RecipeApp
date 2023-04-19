@@ -4,9 +4,9 @@ using RecipeApp.Core.Models;
 
 namespace RecipeApp.Web.CustomValidations
 {
-    public class PasswordValidator : IPasswordValidator<AppUser>
+    public class PasswordValidator : IPasswordValidator<User>
     {
-        public Task<IdentityResult> ValidateAsync(UserManager<AppUser> manager, AppUser user, string? password)
+        public Task<IdentityResult> ValidateAsync(UserManager<User> manager, User user, string? password)
         {
             var errors= new List<IdentityError>();
             if (password!.ToLower().Contains(user.UserName!.ToLower()))

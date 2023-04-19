@@ -4,10 +4,10 @@ using RecipeApp.Core.Models;
 
 namespace RecipeApp.Web.CustomValidations
 {
-    public class UserValidator : IUserValidator<AppUser>
+    public class UserValidator : IUserValidator<User>
     {
         // ! BP ! mümkün olduğunda else,else if kullanma
-        public Task<IdentityResult> ValidateAsync(UserManager<AppUser> manager, AppUser user)
+        public Task<IdentityResult> ValidateAsync(UserManager<User> manager, User user)
         {
             var errors= new List<IdentityError>();
             var isDigit = int.TryParse(user.UserName[0].ToString(), out _);

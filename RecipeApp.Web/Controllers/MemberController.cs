@@ -8,9 +8,9 @@ namespace RecipeApp.Web.Controllers
     [Authorize]
     public class MemberController : Controller
     {
-        private readonly SignInManager<AppUser> signInManager;
+        private readonly SignInManager<User> signInManager;
 
-        public MemberController(SignInManager<AppUser> signInManager)
+        public MemberController(SignInManager<User> signInManager)
         {
             this.signInManager = signInManager;
         }
