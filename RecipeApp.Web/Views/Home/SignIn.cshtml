@@ -18,7 +18,7 @@
                             
 
                             <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
-                            <form asp-controller="Home" asp-action="SignIn">
+                            <form asp-controller="Home" asp-action="SignIn" asp-route-returnUrl="@Context.Request.Query["returnUrl"]">
                                 <div class="form-outline mb-4">
                                     <label class="form-label" asp-for="Email">Eposta</label>
 
