@@ -10,7 +10,6 @@ namespace RecipeApp.Core.Models
     public class User:IdentityUser
     {
 
-        public int Id { get; set; }
         public string FullName { get; set; }
 
         public ICollection<Recipe> Recipes { get; set; }=new List<Recipe>();

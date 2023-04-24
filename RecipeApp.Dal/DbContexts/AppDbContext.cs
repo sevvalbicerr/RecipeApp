@@ -4,6 +4,7 @@ using RecipeApp.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,7 @@ namespace RecipeApp.Dal.DbContexts
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             builder.Entity<Comment>()
     .HasOne(c => c.Recipe)
     .WithMany(r => r.Comments)

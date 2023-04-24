@@ -12,8 +12,8 @@ using RecipeApp.Dal.DbContexts;
 namespace RecipeApp.Dal.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230419141657_AddEntity")]
-    partial class AddEntity
+    [Migration("20230424125741_AddseedData")]
+    partial class AddseedData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -146,6 +146,18 @@ namespace RecipeApp.Dal.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Çorbalar"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Kebaplar"
+                        });
                 });
 
             modelBuilder.Entity("RecipeApp.Core.Models.Comment", b =>
@@ -166,10 +178,7 @@ namespace RecipeApp.Dal.Migrations
                     b.Property<int>("RecipeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId1")
+                    b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
@@ -177,7 +186,7 @@ namespace RecipeApp.Dal.Migrations
 
                     b.HasIndex("RecipeId");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Comments");
                 });
@@ -193,10 +202,7 @@ namespace RecipeApp.Dal.Migrations
                     b.Property<int>("RecipeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId1")
+                    b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
@@ -204,7 +210,7 @@ namespace RecipeApp.Dal.Migrations
 
                     b.HasIndex("RecipeId");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Favorites");
                 });
@@ -236,6 +242,32 @@ namespace RecipeApp.Dal.Migrations
                     b.HasIndex("RecipeId");
 
                     b.ToTable("Ingredients");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Amount = 1m,
+                            Name = "Domates",
+                            RecipeId = 1,
+                            Unit = "adet"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Amount = 1m,
+                            Name = "Tuz",
+                            RecipeId = 1,
+                            Unit = "kaşık"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Amount = 200m,
+                            Name = "Et",
+                            RecipeId = 2,
+                            Unit = "gram"
+                        });
                 });
 
             modelBuilder.Entity("RecipeApp.Core.Models.Recipe", b =>
@@ -267,10 +299,7 @@ namespace RecipeApp.Dal.Migrations
                     b.Property<int>("Score")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId1")
+                    b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
@@ -278,9 +307,33 @@ namespace RecipeApp.Dal.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Recipes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryId = 1,
+                            CreatedDate = new DateTime(2023, 4, 24, 15, 57, 41, 593, DateTimeKind.Local).AddTicks(3775),
+                            Description = "Domates çorbası yapmak için yağ ve un bir tencerede hafifçe kavrulur.Diğer taraftan kabuğu çıkarılıp, küp küp kesilmiş domates robottan geçirilip bu karışıma ilave edilir, birkaç dakika kavrulur.Ara verilmeden bir litre  kadar su ilave edilip karıştırma işlemini sürdürülür. 15 dakika bu şekilde kaynatılır.Daha sonra süt ilave edilip birkaç dakika daha kaynatılarak tuzu ilave edilip ocaktan alınır.Arzuya göre servis yaparken üzerine kaşar peyniri rendesi ilave edilir. Domates çorbamız servise hazır, afiyet olsun.",
+                            Image = "xxxx",
+                            Name = "Domates Çorbası",
+                            Score = 0,
+                            UserId = "bc0dea57-68c0-4e92-80db-31b948351fca"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryId = 2,
+                            CreatedDate = new DateTime(2023, 4, 24, 15, 57, 41, 593, DateTimeKind.Local).AddTicks(3790),
+                            Description = "İlk olarak soğanı ve kapya biberi rondodan geçirin ya da ince ince doğrayın.Suyunu iyice sıkın.Kıymanın içerisine ekleyin.Tuz ve karabiberi de ekleyip güzelce yoğuralım ve dinlenmesi için dolaba kaldıralım.Bu sıra da lavaş için un hariç bütün malzemeleri derin bir kap içerisine alalım.Unu kontrollü ekleyip kıvamlı bir hamur yoğuralım yarım saat kadar mayalansın.Mayalanan hamuru 10-12 eşit parçaya bölelim.Her bir parçayı yuvarlak açıp tava da arkalı önlü pişirelim.Pişen lavaşları bir bez ya da örtüyle güzelce saralım.Dinlenen kıymayı yumruk büyüklüğünde parçalar alıp şişe geçirelim. Şiş yoksa tahta çubuklara geçirelim.Kebap şeklini verip döküm tava da yada normal tava da pişirelim.Lavaş ekmeği arasında domates, biber soğanla servis edelim. Deneyenlere afiyet olsun 🌿.",
+                            Image = "zzzz",
+                            Name = "Adana Kebap",
+                            Score = 0,
+                            UserId = "ce51b864-2524-4466-b8db-3f98d3637992"
+                        });
                 });
 
             modelBuilder.Entity("RecipeApp.Core.Models.User", b =>
@@ -440,7 +493,7 @@ namespace RecipeApp.Dal.Migrations
 
                     b.HasOne("RecipeApp.Core.Models.User", "User")
                         .WithMany("Comments")
-                        .HasForeignKey("UserId1")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -459,7 +512,7 @@ namespace RecipeApp.Dal.Migrations
 
                     b.HasOne("RecipeApp.Core.Models.User", "User")
                         .WithMany("Favorites")
-                        .HasForeignKey("UserId1")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -489,7 +542,7 @@ namespace RecipeApp.Dal.Migrations
 
                     b.HasOne("RecipeApp.Core.Models.User", "User")
                         .WithMany("Recipes")
-                        .HasForeignKey("UserId1")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
