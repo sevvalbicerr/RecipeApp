@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RecipeApp.Core.DTOs
+namespace RecipeApp.Core.ViewModels
 {
-    public class NoContentDto
+    public class NoContentViewModel
     {
+
     }
 }
