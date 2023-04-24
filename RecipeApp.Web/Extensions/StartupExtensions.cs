@@ -1,5 +1,5 @@
 ﻿using RecipeApp.Core.Models;
-using RecipeApp.Dal;
+using RecipeApp.Dal.DbContexts;
 using RecipeApp.Web.CustomValidations;
 using RecipeApp.Web.Models;
 

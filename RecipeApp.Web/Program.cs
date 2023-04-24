@@ -1,7 +1,7 @@
 using AspNetCore.Identity.Extensions;
 using Microsoft.EntityFrameworkCore;
 using RecipeApp.Core.Models;
-using RecipeApp.Dal;
+using RecipeApp.Dal.DbContexts;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
