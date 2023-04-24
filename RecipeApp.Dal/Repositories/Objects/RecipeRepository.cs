@@ -13,7 +13,7 @@ namespace RecipeApp.Dal.Repositories.Objects
 {
     public class RecipeRepository : Repository<Recipe>, IRecipeRepository
     {
-        public RecipeRepository(AppDbContext dbContext, DbSet<Recipe> dbSet) : base(dbContext, dbSet)
+        public RecipeRepository(AppDbContext dbContext) : base(dbContext)
         {
         }
     }

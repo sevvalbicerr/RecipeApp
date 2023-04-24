@@ -15,10 +15,10 @@ namespace RecipeApp.Dal.Repositories.Base
         private readonly AppDbContext _dbContext;
         private readonly DbSet<T> _dbSet;
 
-        public Repository(AppDbContext dbContext, DbSet<T> dbSet)
+        public Repository(AppDbContext dbContext)
         {
             _dbContext = dbContext;
-            _dbSet = dbSet;
+            _dbSet = _dbContext.Set<T>();
         }
 
         public async Task AddAsync(T entity)

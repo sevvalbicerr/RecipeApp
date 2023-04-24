@@ -6,6 +6,7 @@ using RecipeApp.Core.Models;
 using RecipeApp.Dal.DbContexts;
 using RecipeApp.Web.Modules;
 using System.Reflection;
+using NLayer.Service.Mapping;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,9 @@ builder.Services.AddDbContext<AppDbContext>(x =>
         opt.MigrationsAssembly(Assembly.GetAssembly(typeof(AppDbContext)).GetName().Name);
     });
 });
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder => containerBuilder.RegisterModule(new RepoServiceModule()));
+builder.Services.AddAutoMapper(typeof(MapProfile));
 builder.Services.AddIdentityWithExt();
 
 builder.Services.ConfigureApplicationCookie(opt =>
@@ -34,8 +38,7 @@ builder.Services.ConfigureApplicationCookie(opt =>
     opt.SlidingExpiration = true;
     
 });
-builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
-builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder => containerBuilder.RegisterModule(new RepoServiceModule()));
+
 
 var app = builder.Build();
 
