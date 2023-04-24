@@ -1,7 +1,10 @@
 using AspNetCore.Identity.Extensions;
+using Autofac.Extensions.DependencyInjection;
+using Autofac;
 using Microsoft.EntityFrameworkCore;
 using RecipeApp.Core.Models;
 using RecipeApp.Dal.DbContexts;
+using RecipeApp.Web.Modules;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,6 +34,8 @@ builder.Services.ConfigureApplicationCookie(opt =>
     opt.SlidingExpiration = true;
     
 });
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder => containerBuilder.RegisterModule(new RepoServiceModule()));
 
 var app = builder.Build();
 

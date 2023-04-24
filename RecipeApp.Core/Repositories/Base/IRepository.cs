@@ -7,7 +7,7 @@ namespace RecipeApp.Core.Repositories.Base
         Task AddAsync(T entity);
         void UpdateAsync(T entity);
         void DeleteAsync(T entity);
-        Task<IEnumerable<T>> GetAllAsync();
+        IQueryable<T> GetAll();
         //Buna belki gerek yoktur emin değilim.
         Task<T> GetByIdAsync(int id);
 

@@ -32,9 +32,10 @@ namespace RecipeApp.Dal.Repositories.Base
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync()
+        public IQueryable<T> GetAll()
         {
-            return await _dbContext.Set<T>().ToListAsync();
+            var c = _dbSet.AsNoTracking().AsQueryable();
+            return c;
         }
 
         public async Task<T> GetByIdAsync(int id)

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using RecipeApp.Core.Models;
 using RecipeApp.Core.Repositories.Base;
 using RecipeApp.Core.Services.Base;
@@ -16,9 +17,7 @@ namespace RecipeApp.Service.Services.Base
     {
         private readonly IRepository<InT> _repository;
         protected readonly IMapper _mapper;
-        public Service()
-        {
-        }
+        
 
         public Service(IRepository<InT> repository, IMapper mapper)
         {
@@ -41,8 +40,8 @@ namespace RecipeApp.Service.Services.Base
 
         public async Task<IEnumerable<OutT>> GetAllAsync()
         {
-            var entities = await _repository.GetAllAsync();
-            var entityVM=_mapper.Map<IEnumerable<OutT>>(entities);
+            var entities =await  _repository.GetAll().ToListAsync();
+            var entityVM=_mapper.Map<List<OutT>>(entities);
             return entityVM;
         }
 

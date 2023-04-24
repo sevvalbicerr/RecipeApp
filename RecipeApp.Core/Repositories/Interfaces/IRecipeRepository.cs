@@ -1,4 +1,6 @@
-﻿using System;
+﻿using RecipeApp.Core.Models;
+using RecipeApp.Core.Repositories.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RecipeApp.Core.Repositories.Interfaces
 {
-    internal interface IRecipeRepository
+    public interface IRecipeRepository:IRepository<Recipe>
     {
     }
 }
