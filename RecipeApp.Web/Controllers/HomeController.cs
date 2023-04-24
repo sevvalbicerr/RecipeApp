@@ -53,7 +53,8 @@ namespace RecipeApp.Web.Controllers
             var user=await _userManager.CreateAsync(new()
             {
                 UserName = model.UserName,
-                Email = model.Email
+                Email = model.Email,
+                FullName=model.FullName
             }, model.PasswordConfirmed);
             if (user.Succeeded)
             {

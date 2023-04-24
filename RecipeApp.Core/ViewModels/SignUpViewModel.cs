@@ -20,6 +20,10 @@ namespace RecipeApp.Core.ViewModels
         [Display(Name ="Kullanıcı Adı")]
         public string UserName { get; set; }
 
+         [Required(ErrorMessage ="Ad-Soyad boş bırakılamaz!")]
+        [Display(Name ="Ad-Soyad")]
+        public string FullName { get; set; }
+
         [EmailAddress(ErrorMessage ="Email Formatı yanlış")]
         [Required(ErrorMessage = "Email boş bırakılamaz!")]
         [Display(Name = "Email")]
