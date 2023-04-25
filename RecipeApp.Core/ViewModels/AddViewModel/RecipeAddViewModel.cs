@@ -12,9 +12,9 @@ namespace RecipeApp.Core.ViewModels.AddViewModel
         public string Name { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }
+        public int Score { get; set; }
 
 
-        public ICollection<Ingredient> Ingredients { get; set; }
-       
+
     }
 }
