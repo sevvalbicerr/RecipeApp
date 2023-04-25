@@ -11,7 +11,6 @@ namespace RecipeApp.Core.ViewModels.AddViewModel
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public byte[] Image { get; set; }
         public int CategoryId { get; set; }
         public string UserId { get; set; }
 

@@ -63,7 +63,6 @@ namespace RecipeApp.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Save(RecipeAddViewModel recipeVM)
         {
-            byte[] imageBytes = System.IO.File.ReadAllBytes("default.jpg");
             if (ModelState.IsValid)
             {
                 var newMember = new RecipeAddViewModel
@@ -72,7 +71,6 @@ namespace RecipeApp.Web.Controllers
                     Description = recipeVM.Description,
                     Ingredients = recipeVM.Ingredients,
                     //TODO: image ekleme??
-                    Image = imageBytes,
                     CategoryId = recipeVM.CategoryId,
                     UserId=recipeVM.UserId
                     };
