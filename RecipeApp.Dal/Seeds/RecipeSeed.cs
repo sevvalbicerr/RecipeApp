@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using RecipeApp.Core.Models;
+using RecipeApp.Service.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,10 @@ namespace RecipeApp.Dal.Seeds
 {
     public class RecipeSeed : IEntityTypeConfiguration<Recipe>
     {
+
         public void Configure(EntityTypeBuilder<Recipe> builder)
         {
+            var imageData = ImageHelper.GetBytesFromImageUrl("https://cdn.yemek.com/mnresize/1250/833/uploads/2022/03/domates-corbasi-sevgililer-gunu-gorsel.jpg");
             builder.HasData(new Recipe()
             {
                  Id = 1,
@@ -24,8 +27,8 @@ namespace RecipeApp.Dal.Seeds
                     "kadar su ilave edilip karıştırma işlemini sürdürülür. 15 dakika bu şekilde kaynatılır." +
                     "Daha sonra süt ilave edilip birkaç dakika daha kaynatılarak tuzu ilave edilip ocaktan alınır." +
                     "Arzuya göre servis yaparken üzerine kaşar peyniri rendesi ilave edilir. Domates çorbamız servise hazır, afiyet olsun.",
-                     Image="xxxx",
-                     UserId= "bc0dea57-68c0-4e92-80db-31b948351fca"
+                Image = imageData,
+                UserId = "bc0dea57-68c0-4e92-80db-31b948351fca"
 
 
             },
@@ -43,8 +46,8 @@ namespace RecipeApp.Dal.Seeds
                  "Dinlenen kıymayı yumruk büyüklüğünde parçalar alıp şişe geçirelim. Şiş yoksa tahta çubuklara geçirelim." +
                  "Kebap şeklini verip döküm tava da yada normal tava da pişirelim.Lavaş ekmeği arasında domates, biber soğanla servis edelim." +
                  " Deneyenlere afiyet olsun 🌿.",
-                  Image="zzzz",
-                  UserId= "ce51b864-2524-4466-b8db-3f98d3637992"
+                Image = imageData,
+                UserId = "ce51b864-2524-4466-b8db-3f98d3637992"
 
 
             });

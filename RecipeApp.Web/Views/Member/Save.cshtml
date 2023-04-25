@@ -1,0 +1,64 @@
+﻿@using RecipeApp.Core.ViewModels.AddViewModel;
+@using System.Security.Claims;
+
+@{
+    ViewData["Title"] = "Save";
+}
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+@model RecipeAddViewModel
+<div class="row">
+
+
+
+    <div class="col-md-6">
+        <form asp-action="Save" method="post" asp-controller="Member">
+            <div class="form-group">
+                <input type="hidden" asp-for="UserId" value="@User.FindFirst(ClaimTypes.NameIdentifier).Value" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Name">Yemek Adı</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Description">Tarifi</label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description"></span>
+
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Ingredients">Malzemeler</label>
+                <input asp-for="Ingredients" class="form-control" />
+                <span asp-validation-for="Ingredients"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image">Yemeğin Fotoğrafı</label>
+                <input asp-for="Image" class="form-control" />
+                <span asp-validation-for="Image"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="CategoryId">Kategoriler</label>
+                <select asp-for="CategoryId" asp-items="ViewBag.categories" class="form-control">
+                    <option value="">Bir kategori seçiniz</option>
+                </select>
+                <span asp-validation-for="CategoryId"></span>
+            </div>
+
+            <div class="form-group">
+
+                <input type="submit" value="save" class="btn-primary" />
+            </div>
+
+        </form>
+
+    </div>
+
+
+</div>

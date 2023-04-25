@@ -9,10 +9,10 @@ namespace RecipeApp.Core.ViewModels.OutViewModels
 {
     public class RecipeOutVM
     {
-
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public string Image { get; set; }
+        public byte[] Image { get; set; }
         public DateTime CreatedDate { get; set; }
         public int Score { get; set; }
 
@@ -20,7 +20,8 @@ namespace RecipeApp.Core.ViewModels.OutViewModels
         
 
         public string UserId { get; set; }
-      
+
+        public ICollection<Ingredient> Ingredients { get; set; }
 
         public int CategoryId { get; set; }
      

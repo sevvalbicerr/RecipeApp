@@ -4,24 +4,23 @@
     ViewData["Title"] = "Index";
 }
 @model List<RecipeOutVM>
-<table class="table">
-    <thead>
-        <tr>
-            
-            <td>Name</td>
-            <td>Description</td>
-            <td>CreatedDate</td>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>   
-                <td>@item.Name</td>
-                <td>@item.Description</td>
-                <td>@item.CreatedDate</td>
-            </tr>
-        }
-    </tbody>
-</table>
-
+@foreach(var item in Model)
+{
+    <div class="card">
+        <img class="card-img-top" src=@item.Image alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">@item.Name</h5>
+            <div class="card-body">
+                <a href="#" class="card-link">favori</a>
+                <a href="#" class="card-link">score</a>
+            </div>
+            <p class="card-text">@item.Description</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+       
+    </div>
+}
