@@ -15,7 +15,7 @@ namespace RecipeApp.Core.Models
         public int Score { get; set; }
 
 
-        public ICollection<Ingredient> Ingredients { get; set; }
+        public string Ingredients { get; set; }
         public ICollection<Comment> Comments { get; set; }
         public ICollection<Favorite> Favorites { get; set; }
 

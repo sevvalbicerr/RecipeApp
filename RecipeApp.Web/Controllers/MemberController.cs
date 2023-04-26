@@ -4,10 +4,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using RecipeApp.Core.Models;
 using RecipeApp.Core.Services.Interfaces;
 using RecipeApp.Core.ViewModels;
 using RecipeApp.Core.ViewModels.AddViewModel;
+using RecipeApp.Core.ViewModels.OutViewModels;
 using System.Security.Claims;
 
 namespace RecipeApp.Web.Controllers
@@ -134,17 +136,11 @@ namespace RecipeApp.Web.Controllers
                     Image= recipeVM.Image,
                     CategoryId = recipeVM.CategoryId,
                     CreatedDate= DateTime.Now,
-             
+                    
                     UserId=recipeVM.UserId
                     };
-                // Ingredientler 
-                //newMember.Ingredients = recipeVM.Ingredients.Select(x => new Ingredient
-                //{
-                //    Name = x.Name,
-                //    Amount = x.Amount,
-                //    Unit=x.Unit
-                //}).ToList();
-                await _recipeService.AddAsync(newMember);
+                var recipe=await _recipeService.AddAsync(newMember);
+              
                 return RedirectToAction(nameof(Index));
             }
 

@@ -15,7 +15,7 @@ namespace RecipeApp.Core.ViewModels.AddViewModel
         public string UserId { get; set; }
         public string Image { get; set; }
         public DateTime CreatedDate { get; set; }
-        public ICollection<Ingredient> Ingredients { get; set; }
+        public string Ingredients { get; set; }
 
 
     }

@@ -20,7 +20,7 @@ namespace RecipeApp.Core.ViewModels.OutViewModels
 
         public string UserId { get; set; }
 
-        public ICollection<Ingredient> Ingredients { get; set; }
+        public string Ingredients { get; set; }
 
         public int CategoryId { get; set; }
      
