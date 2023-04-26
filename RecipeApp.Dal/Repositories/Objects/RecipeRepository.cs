@@ -14,12 +14,15 @@ namespace RecipeApp.Dal.Repositories.Objects
 {
     public class RecipeRepository : Repository<Recipe>, IRecipeRepository
     {
-        private readonly DbSet<Recipe> _dbSet;
+       
         public RecipeRepository(AppDbContext dbContext) : base(dbContext)
         {
-            _dbSet = dbContext.Set<Recipe>();
+            
         }
 
-       
+        public IEnumerable<Recipe> GetAllRecipeWithOrderedByDesc()
+        {
+            return _dbContext.Recipes.Include(r => r.Category).Include(r => r.User).OrderByDescending(r => r.CreatedDate).ToList();
+        }
     }
 }

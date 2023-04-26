@@ -29,7 +29,11 @@ namespace RecipeApp.Core.ViewModels
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Parola boş bırakılamaz!")]
+		
+		[Display(Name = "Telefon Numarası")]
+		public string PhoneNumber { get; set; }
+
+		[Required(ErrorMessage = "Parola boş bırakılamaz!")]
         [Display(Name = "Parola")]
         public string Password { get; set; }
 

@@ -15,8 +15,8 @@ namespace RecipeApp.Core.ViewModels.OutViewModels
         public DateTime CreatedDate { get; set; }
         public int Score { get; set; }
 
+        public string Image { get; set; }
 
-        
 
         public string UserId { get; set; }
 

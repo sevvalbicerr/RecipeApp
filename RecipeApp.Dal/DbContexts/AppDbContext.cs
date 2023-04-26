@@ -28,7 +28,7 @@ namespace RecipeApp.Dal.DbContexts
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            //builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             builder.Entity<Comment>()
     .HasOne(c => c.Recipe)
     .WithMany(r => r.Comments)

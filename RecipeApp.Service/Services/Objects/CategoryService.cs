@@ -17,5 +17,7 @@ namespace RecipeApp.Service.Services.Objects
         public CategoryService(IRepository<Category> repository, IMapper mapper) : base(repository, mapper)
         {
         }
+
+
     }
 }

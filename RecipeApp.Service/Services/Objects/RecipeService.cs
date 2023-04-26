@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using RecipeApp.Core.Models;
 using RecipeApp.Core.Repositories.Base;
 using RecipeApp.Core.Repositories.Interfaces;
@@ -29,6 +30,13 @@ namespace RecipeApp.Service.Services.Objects
             await _recipeRepository.SaveChangeAsync();
             var entityVm = _mapper.Map<RecipeOutVM>(entity);
             return entityVm;
+        }
+
+        public List<RecipeOutVM> GetRecipeOrderByDesc()
+        {
+            var entities =  _recipeRepository.GetAllRecipeWithOrderedByDesc();
+            var entitiesVM = _mapper.Map<List<RecipeOutVM>>(entities);
+            return entitiesVM;
         }
     }
 }

@@ -7,21 +7,26 @@
 @foreach(var item in Model)
 {
     <div class="card">
-        <img class="card-img-top" 
-        alt="Card image cap">
+        <img class="card-img-top" src="https://cdn.yemek.com/mnresize/1250/833/uploads/2022/03/domates-corbasi-sevgililer-gunu-gorsel.jpg" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">@item.Name</h5>
+            <p class="card-text">@item.CategoryId</p>
+            <p class="card-text">@item.CreatedDate</p>
+
             <div class="card-body">
                 <a href="#" class="card-link">favori</a>
                 <a href="#" class="card-link">score</a>
             </div>
             <p class="card-text">@item.Description</p>
+            <ul>
+                @foreach (var ingredient in item.Ingredients)
+                {
+                    <li>@ingredient.Name - @ingredient.Amount</li>
+                }
+            </ul>
         </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
+      
+       
        
     </div>
 }

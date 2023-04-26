@@ -14,5 +14,8 @@ namespace RecipeApp.Core.Services.Interfaces
     {
         Task<RecipeOutVM> AddAsync(RecipeAddViewModel dto);
 
+        List<RecipeOutVM> GetRecipeOrderByDesc();
+        
+
     }
 }

@@ -5,6 +5,7 @@ using RecipeApp.Core.Models;
 using RecipeApp.Web.Models;
 using RecipeApp.Core.ViewModels;
 using System.Diagnostics;
+using RecipeApp.Core.Services.Interfaces;
 
 namespace RecipeApp.Web.Controllers
 {
@@ -13,16 +14,18 @@ namespace RecipeApp.Web.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
-        public HomeController(ILogger<HomeController> logger, UserManager<User> userManager, SignInManager<User> signInManager)
+        private readonly IRecipeService _recipeService;
+        public HomeController(ILogger<HomeController> logger, UserManager<User> userManager, SignInManager<User> signInManager, IRecipeService recipeService)
         {
             _logger = logger;
             _userManager = userManager;
             _signInManager = signInManager;
+            _recipeService = recipeService;
         }
 
         public IActionResult Index()
         {
-            return View();
+            return View(_recipeService.GetRecipeOrderByDesc());
         }
 
         public IActionResult Privacy()
@@ -95,5 +98,7 @@ namespace RecipeApp.Web.Controllers
             ModelState.AddModelErrorList(new List<string>() { "Email veya şifre yanlış" });
             return View();
         }
+
+
     }
 }

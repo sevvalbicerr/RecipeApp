@@ -11,6 +11,7 @@ namespace RecipeApp.Core.Repositories.Interfaces
 {
     public interface IRecipeRepository:IRepository<Recipe>
     {
-        
+        IEnumerable<Recipe> GetAllRecipeWithOrderedByDesc();
+
     }
 }

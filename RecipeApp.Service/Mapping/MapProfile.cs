@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using RecipeApp.Core.Models;
+using RecipeApp.Core.ViewModels;
 using RecipeApp.Core.ViewModels.AddViewModel;
 using RecipeApp.Core.ViewModels.OutViewModels;
 
@@ -12,6 +13,8 @@ namespace NLayer.Service.Mapping
             CreateMap<Recipe,RecipeOutVM>().ReverseMap();
             CreateMap<Recipe,RecipeAddViewModel>().ReverseMap();
             CreateMap<Category,CategoryOutVM>().ReverseMap();
+
+            CreateMap<User,UserProfileViewModel>().ReverseMap();
         }
     }
 }

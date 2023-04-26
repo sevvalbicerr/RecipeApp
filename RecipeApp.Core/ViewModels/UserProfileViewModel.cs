@@ -8,6 +8,7 @@ namespace RecipeApp.Core.ViewModels
 {
 	public class UserProfileViewModel
 	{
+        public string Id { get; set; }
         public string FullName { get; set; }
 		public string UserName { get; set; }
         public string Phone { get; set; }
