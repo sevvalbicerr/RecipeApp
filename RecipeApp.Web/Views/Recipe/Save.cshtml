@@ -14,7 +14,7 @@
 
 
     <div class="col-md-6">
-        <form asp-action="Save" method="post" asp-controller="Member">
+        <form asp-action="Save" method="post" asp-controller="Recipe">
             <div class="form-group">
                 <input type="hidden" asp-for="UserId" value="@User.FindFirst(ClaimTypes.NameIdentifier).Value" />
             </div>

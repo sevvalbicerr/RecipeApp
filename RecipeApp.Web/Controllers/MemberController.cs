@@ -102,51 +102,6 @@ namespace RecipeApp.Web.Controllers
 		}
 
 
-		public async Task<IActionResult> Save()
-        {
-            var categories = await _categoryService.GetAllAsync();
-            ViewBag.Categories = new SelectList(categories, "Id", "Name");
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Save(RecipeAddViewModel recipeVM)
-        {
-            if (!ModelState.IsValid)
-            {
-                foreach (var key in ModelState.Keys)
-                {
-                    var error = ModelState[key].Errors.FirstOrDefault();
-                    if (error != null)
-                    {
-                        var errorMessage = error.ErrorMessage;
-                    }
-                }
-            }
-            //TODO:Malzemeleri Ekleme!!
-
-            if (ModelState.IsValid)
-            {
-                var newMember = new RecipeAddViewModel
-                {
-                    Name = recipeVM.Name,
-                    Description = recipeVM.Description,
-                    Ingredients = recipeVM.Ingredients,
-                    //TODO: image ekleme??
-                    Image= recipeVM.Image,
-                    CategoryId = recipeVM.CategoryId,
-                    CreatedDate= DateTime.Now,
-                    
-                    UserId=recipeVM.UserId
-                    };
-                var recipe=await _recipeService.AddAsync(newMember);
-              
-                return RedirectToAction(nameof(Index));
-            }
-
-            var categories = await _categoryService.GetAllAsync();
-            ViewBag.Categories = new SelectList(categories, "Id", "Name");
-            return View();
-        }
+		
     }
 }
