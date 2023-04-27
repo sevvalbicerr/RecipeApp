@@ -10,6 +10,7 @@ namespace RecipeApp.Core.Repositories.Interfaces
 {
     public interface ICategoryRepository:IRepository<Category>   
     {
-
+        Task<Category> GetSingleCategoryByIdWithProducts(int Categoryid);
     }
+
 }

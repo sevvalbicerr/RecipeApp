@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using RecipeApp.Core.Repositories.Interfaces;
 using RecipeApp.Core.Services.Interfaces;
 using RecipeApp.Core.ViewModels.OutViewModels;
@@ -7,6 +8,7 @@ using System.Security.Claims;
 
 namespace RecipeApp.Web.Controllers
 {
+    [Authorize]
     public class FavoriteController : Controller
     {
         private readonly IFavoriteService _favoriteService;

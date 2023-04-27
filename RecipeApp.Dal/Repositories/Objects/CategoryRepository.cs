@@ -1,4 +1,5 @@
-﻿using RecipeApp.Core.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using RecipeApp.Core.Models;
 using RecipeApp.Core.Repositories.Interfaces;
 using RecipeApp.Dal.DbContexts;
 using RecipeApp.Dal.Repositories.Base;
@@ -14,6 +15,11 @@ namespace RecipeApp.Dal.Repositories.Objects
     {
         public CategoryRepository(AppDbContext dbContext) : base(dbContext)
         {
+        }
+
+        public async Task<Category> GetSingleCategoryByIdWithProducts(int Categoryid)
+        {
+            return await _dbContext.Categories.Include(c => c.Recipes).Where(c => c.Id == Categoryid).SingleOrDefaultAsync();
         }
     }
 }

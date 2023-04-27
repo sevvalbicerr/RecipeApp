@@ -16,5 +16,10 @@ namespace RecipeApp.Web.Controllers
         {
             return View(await _categoryService.GetAllAsync());
         }
+
+        public  async Task<IActionResult> GetCategorywithRecipe(int id) {
+            return View(await _categoryService.GetSingleCategoryByIdWithProducts(id));
+        
+        }
     }
 }

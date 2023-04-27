@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "GetCategorywithRecipe";
+}
+@model CategoryOutVM
+<div class="card">
+    <h5 class="card-title">@Model.Name</h5>
+    @foreach(var item in Model.Recipes)
+    {
+        <div class="card">
+            <h5 class="card-title">@item.Name</h5>
+            <img class="card-img-top" src="@item.Image" alt="Card image cap">
+            <div class="card-body">
+                <div class="card-body">
+                    <p class="card-text">Eklenme Tarihi: @item.CreatedDate</p>
+                </div>
+                <div class="card-body">
+                    <a href="#" class="card-link">@item.Score</a>
+                </div>
+                <h4 class="card-text">Tarif:</h4>
+                <p class="card-text"> @item.Description</p>
+                <h4 class="card-text">Malzemeler:</h4>
+                <p class="card-text">@item.Ingredients</p>
+            </div>
+        </div>
+    }
+
+</div>
+
+

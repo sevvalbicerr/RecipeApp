@@ -9,6 +9,7 @@
     <thead>
         <tr>
             <td>Kategori Adı:</td>
+            <td>Kategorideki yemekler</td>
         </tr>
     </thead>
     <tbody>
@@ -16,6 +17,13 @@
         {
             <tr>
                 <td>@item.Name</td>
+                <td>
+                    <form method="get" action="Category/GetCategorywithRecipe">
+                        <input type="hidden" name="Id" value="@item.Id" />
+                        <button type="submit">Yemekleri Gör</button>
+                    </form>
+                </td>
+
             </tr>
         }
     </tbody>
