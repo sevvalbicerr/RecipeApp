@@ -13,7 +13,7 @@ namespace RecipeApp.Core.Services.Base
     {
         Task<OutT> AddAsync(OutT entity);
         Task<NoContentViewModel> UpdateAsync(OutT entity);
-        Task<NoContentViewModel> DeleteAsync(int id);
+        Task DeleteAsync(int id);
         Task<IEnumerable<OutT>> GetAllAsync();
         //Buna belki gerek yoktur emin değilim.
         Task<OutT> GetByIdAsync(int id);

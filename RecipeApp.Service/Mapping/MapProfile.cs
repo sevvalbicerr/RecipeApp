@@ -13,7 +13,7 @@ namespace NLayer.Service.Mapping
             CreateMap<Recipe,RecipeOutVM>().ReverseMap();
             CreateMap<Recipe,RecipeAddViewModel>().ReverseMap();
             CreateMap<Category,CategoryOutVM>().ReverseMap();
-
+            CreateMap<Favorite,FavoriteOutVM>().ReverseMap();
             CreateMap<User,UserProfileViewModel>().ReverseMap();
         }
     }

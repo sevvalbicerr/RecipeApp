@@ -1,31 +1,37 @@
 ﻿@using RecipeApp.Core.Models;
+@using System.Security.Claims;
 
 @{
     ViewData["Title"] = "Index";
 }
 @model List<RecipeOutVM>
-@foreach (var item in Model)
-{
-    <div class="card">
-        <h5 class="card-title">@item.Name</h5>
-        @*<p class="card-text">>@item.Category.Name</p>*@
 
-        <img class="card-img-top" src="@item.Image" alt="Card image cap">
-        <div class="card-body">
 
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <h5 class="card-title">@item.Name</h5>
+            <img class="card-img-top" src="@item.Image" alt="Card image cap">
             <div class="card-body">
-                <p class="card-text">Eklenme Tarihi: @item.CreatedDate</p>
-
+                <div class="card-body">
+                    <p class="card-text">Eklenme Tarihi: @item.CreatedDate</p>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="/Favorite/AddToFavorites">
+                        <input type="hidden" name="recipeId" value="@item.Id" />
+                        <input type="hidden" name="userId" value="@User.FindFirst(ClaimTypes.NameIdentifier).Value" />
+                        <button type="submit">Favorilere Ekle</button>
+                    </form>
+                    <a href="#" class="card-link">@item.Score</a>
+                </div>
+                <h4 class="card-text">Tarif:</h4>
+                <p class="card-text"> @item.Description</p>
+                <h4 class="card-text">Malzemeler:</h4>
+                <p class="card-text">@item.Ingredients</p>
             </div>
-            <div class="card-body">
-                <a href="#" class="card-link">favori</a>
-                <a href="#" class="card-link">score</a>
-            </div>
-            <h4 class="card-text">Tarif:</h4>
-            <p class="card-text"> @item.Description</p>
-            <h4 class="card-text">Malzemeler:</h4>
-            <p class="card-text">@item.Ingredients</p>
-
         </div>
-    </div>
-}
+
+
+    }
+
+

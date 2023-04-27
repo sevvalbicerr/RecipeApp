@@ -4,6 +4,7 @@ using RecipeApp.Core.Models;
 using RecipeApp.Core.Repositories.Base;
 using RecipeApp.Core.Services.Base;
 using RecipeApp.Core.ViewModels;
+using RecipeApp.Core.ViewModels.OutViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace RecipeApp.Service.Services.Base
 {
     public class Service<InT, OutT> : IService<InT, OutT> where InT : BaseEntity where OutT : class
     {
-        private readonly IRepository<InT> _repository;
+        protected readonly IRepository<InT> _repository;
         protected readonly IMapper _mapper;
         
 
@@ -28,14 +29,28 @@ namespace RecipeApp.Service.Services.Base
         public async Task<OutT> AddAsync(OutT entity)
         {
             var NewEntity= _mapper.Map<InT>(entity);
-            await _repository.AddAsync(NewEntity);
+
+            try
+            {
+                await _repository.AddAsync(NewEntity);
+                await _repository.SaveChangeAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while adding favorite to the database.", ex);
+            }
+           
+            
             return entity;
 
         }
 
-        public Task<NoContentViewModel> DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var entity=await _repository.GetByIdAsync(id);
+            _repository.DeleteAsync(entity);
+            await _repository.SaveChangeAsync();
+             
         }
 
         public async Task<IEnumerable<OutT>> GetAllAsync()

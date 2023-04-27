@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -16,18 +17,25 @@ namespace RecipeApp.Web.Controllers
     {
         private readonly IRecipeService _recipeService;
 		private readonly ICategoryService _categoryService;
-        public RecipeController(IRecipeService recipeService, AppDbContext appDbContext, ICategoryService categoryService)
+        private readonly IFavoriteService _favoriteService;
+        private readonly UserManager<User> _userManager;
+        public RecipeController(IRecipeService recipeService, AppDbContext appDbContext, ICategoryService categoryService, IFavoriteService favoriteService, UserManager<User> userManager)
         {
             _recipeService = recipeService;
             _categoryService = categoryService;
+            _favoriteService = favoriteService;
+            _userManager = userManager;
         }
 
         public async Task<IActionResult> Index()
         {
-            //var entities=await _appDbContext.Recipes.ToListAsync();
-            //return View(entities);
+            
             return View(await _recipeService.GetAllAsync());
         }
+
+
+
+
 
         public async Task<IActionResult> Save()
         {
@@ -37,7 +45,7 @@ namespace RecipeApp.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Save(RecipeAddViewModel recipeVM)
+        public async Task<IActionResult> Save(RecipeAddViewModel recipeVM)    
         {
             if (!ModelState.IsValid)
             {
@@ -50,7 +58,6 @@ namespace RecipeApp.Web.Controllers
                     }
                 }
             }
-            //TODO:Malzemeleri Ekleme!!
 
             if (ModelState.IsValid)
             {
@@ -76,6 +83,7 @@ namespace RecipeApp.Web.Controllers
             return View();
         }
 
-
+       
+    
     }
 }

@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model List<FavoriteOutVM>
+<table class="table table-striped">
+
+    <thead>
+        <tr>
+            <td>Yemek Id:</td>
+            <td>Yemek Adı</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.RecipeId</td>
+                <td>@item.Recipe.Name</td>
+                <td><a class=" btn btn-warning" asp-controller="Recipe" asp-action="Index" asp-route-id="@item.RecipeId">Tarife git</a></td>
+                <td><a class=" btn btn-warning" asp-controller="Favorite" asp-action="Remove" asp-route-id="@item.Id">Favorilerimden Sil</a></td>
+               
+            </tr>
+        }
+    </tbody>
+
+
+</table>
+
+
+

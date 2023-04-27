@@ -10,5 +10,7 @@ namespace RecipeApp.Core.Repositories.Interfaces
 {
     public interface IFavoriteRepository:IRepository<Favorite>
     {
+        Favorite GetByRecipeAndUser(int recipeId,string UserId);
+        Task<IEnumerable<Favorite>> GetAllfavoriteswithRecipe();
     }
 }

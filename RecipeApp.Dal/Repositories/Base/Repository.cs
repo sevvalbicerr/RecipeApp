@@ -28,8 +28,7 @@ namespace RecipeApp.Dal.Repositories.Base
 
         public void DeleteAsync(T entity)
         {
-            //TODO: id ile mi işlem yapmam lazım, Bunu araştır. 
-            throw new NotImplementedException();
+            _dbSet.Remove(entity);
         }
 
         public IQueryable<T> GetAll()

@@ -1,4 +1,5 @@
-﻿@{
+﻿@using System.Security.Claims;
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -7,24 +8,21 @@
 {
     <div class="card">
         <h5 class="card-title">@item.Name</h5>
-        <p class="card-text">>@item.Category.Name</p>
-
         <img class="card-img-top" src="@item.Image" alt="Card image cap">
         <div class="card-body">
-           
             <div class="card-body">
                 <p class="card-text">Eklenme Tarihi: @item.CreatedDate</p>
-              
             </div>
             <div class="card-body">
-                <a href="#" class="card-link">Favorilerime Ekle</a>
-                <a href="#" class="card-link">score</a>
+                
+                <a href="#" class="card-link">@item.Score</a>
             </div>
             <h4 class="card-text">Tarif:</h4>
             <p class="card-text"> @item.Description</p>
             <h4 class="card-text">Malzemeler:</h4>
             <p class="card-text">@item.Ingredients</p>
-           
         </div>
     </div>
+
+
 }
