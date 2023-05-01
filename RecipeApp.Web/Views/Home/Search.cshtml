@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "Search";
+}
+
+@model List<RecipeOutVM>
+<h1>Search Results</h1>
+
+<form method="get" action="Home/Search">
+    <label for="query">Search:</label>
+    <input type="text" name="query" />
+    <button type="submit">Search</button>
+</form>
+
+@if (Model.Any())
+{
+    <ul>
+        @foreach (var recipe in Model)
+        {
+            <li><a href="@Url.Action(nameof(recipe), new { id = recipe.Id })">@recipe.Name</a></li>
+        }
+    </ul>
+}
+else
+{
+    <p>No results found.</p>
+}
+

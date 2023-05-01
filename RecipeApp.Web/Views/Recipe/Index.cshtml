@@ -22,7 +22,17 @@
                         <input type="hidden" name="userId" value="@User.FindFirst(ClaimTypes.NameIdentifier).Value" />
                         <button type="submit">Favorilere Ekle</button>
                     </form>
-                    <a href="#" class="card-link">@item.Score</a>
+               
+                <div class="d-flex justify-content-end align-items-center ">
+                  
+                    <div class="ratings  ">
+                        <h5 >Puan</h5>
+                        @for (int i = 0; i < item.Score; i++)
+                        {
+                            <i class="fa fa-star rating-color"></i>
+                        }
+                    </div>
+                </div>
                 </div>
                 <h4 class="card-text">Tarif:</h4>
                 <p class="card-text"> @item.Description</p>

@@ -28,6 +28,7 @@ namespace RecipeApp.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> AddToFavorites(int recipeId, string userId)
         {
+            //TODO: Favorilere eklendiğinde UI'daki Favorilere ekle buton adının değişmesi gerekiyor. 
             var recipe = await _recipeService.GetByIdAsync(recipeId);
             var user = userId;
 

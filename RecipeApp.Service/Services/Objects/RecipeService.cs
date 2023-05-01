@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace RecipeApp.Service.Services.Objects
 {
@@ -37,6 +38,30 @@ namespace RecipeApp.Service.Services.Objects
             var entities =  _recipeRepository.GetAllRecipeWithOrderedByDesc();
             var entitiesVM = _mapper.Map<List<RecipeOutVM>>(entities);
             return entitiesVM;
+        }
+
+        public async Task<List<RecipeOutVM>> GetRecipewithFilter(string SearchString)
+        {
+            if (string.IsNullOrWhiteSpace(SearchString))
+            {
+                // Boş sorgu durumunda tüm kayıtları getirin
+                var recipeX = await _recipeRepository.GetAll().ToListAsync();
+                var recipeOutVM = _mapper.Map<List<RecipeOutVM>>(recipeX);
+                return recipeOutVM;
+               
+            }
+            var searchTerms = SearchString.Trim().Split(' ');
+            var recipe= await _recipeRepository.GetAll().ToListAsync();
+            foreach (var term in searchTerms)
+            {
+                recipe = recipe.Where(r => searchTerms.Any(s => r.Name.Contains(s) || r.Ingredients.Contains(s) || r.Description.Contains(s))).ToList();
+                var recipeOutVM = _mapper.Map<List<RecipeOutVM>>(recipe);
+                return recipeOutVM;
+            }
+
+           
+            
+            return null;
         }
     }
 }

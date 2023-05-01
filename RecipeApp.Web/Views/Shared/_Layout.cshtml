@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/RecipeApp.Web.styles.css" asp-append-version="true" />
+    <script src="https://use.fontawesome.com/d14c565c21.js"></script>
+
        <!-- Option 1: Include in HTML -->
   
 </head>
@@ -24,16 +26,16 @@
                     <a class="list-group-item list-group-item-action py-2 ripple" asp-area="" asp-controller="Home" asp-action="Index">
                         <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Ana sayfa</span>
                     </a>
-                    <a class="list-group-item list-group-item-action py-2 ripple active" asp-controller="Recipe" asp-action="Index">
+                    <a class="list-group-item list-group-item-action py-2 ripple " asp-controller="Recipe" asp-action="Index">
                         <i class="fas fa-chart-area fa-fw me-3"></i><span>Yemekler</span>
                     </a>
-                    <a class="list-group-item list-group-item-action py-2 ripple active" asp-controller="Recipe" asp-action="Save">
+                    <a class="list-group-item list-group-item-action py-2 ripple " asp-controller="Recipe" asp-action="Save">
                         <i class="fas fa-chart-area fa-fw me-3"></i><span>Yemek Ekle</span>
                     </a>
-                    <a class="list-group-item list-group-item-action py-2 ripple active" asp-controller="Category" asp-action="Index">
+                    <a class="list-group-item list-group-item-action py-2 ripple " asp-controller="Category" asp-action="Index">
                         <i class="fas fa-chart-area fa-fw me-3"></i><span>Kategoriler</span>
                     </a>
-                    <a class="list-group-item list-group-item-action py-2 ripple active" asp-controller="Favorite" asp-action="Index">
+                    <a class="list-group-item list-group-item-action py-2 ripple " asp-controller="Favorite" asp-action="Index">
                         <i class="fas fa-chart-area fa-fw me-3"></i><span>Favoriler</span>
                     </a>
                 </div>
@@ -42,14 +44,15 @@
         <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
             <!-- Container wrapper -->
             <div class="container-fluid">
+
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Yemek Tarifleri</a>
                 <!-- Search form -->
-                <form class="d-none d-md-flex input-group w-auto my-auto">
-                    <input autocomplete="off" type="search" class="form-control rounded"
+                <form class="d-none d-md-flex input-group w-auto my-auto" method="post" asp-action="Search" asp-controller="Home">
+                    <input autocomplete="on" type="text" class="form-control rounded" name="SearchString" 
                            placeholder='Search ' style="min-width: 225px;" />
-                    <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
+                    <button class="input-group-text border-0"><i class="fa fa-search"></i></button>
                 </form>
-
+               
                 <partial name="/Views/Shared/NavbarLogin.cshtml" />
             </div>
         </nav>

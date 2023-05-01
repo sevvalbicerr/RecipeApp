@@ -6,6 +6,7 @@ using RecipeApp.Web.Models;
 using RecipeApp.Core.ViewModels;
 using System.Diagnostics;
 using RecipeApp.Core.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace RecipeApp.Web.Controllers
 {
@@ -99,6 +100,12 @@ namespace RecipeApp.Web.Controllers
             return View();
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Search(string SearchString)
+        {
+            return View(await _recipeService.GetRecipewithFilter(SearchString));
+        }
+       
 
     }
 }

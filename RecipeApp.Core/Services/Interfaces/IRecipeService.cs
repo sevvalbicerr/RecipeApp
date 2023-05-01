@@ -17,7 +17,7 @@ namespace RecipeApp.Core.Services.Interfaces
         List<RecipeOutVM> GetRecipeOrderByDesc();
 
 
-        
+        Task<List<RecipeOutVM>> GetRecipewithFilter(string SearchString);
 
     }
 }

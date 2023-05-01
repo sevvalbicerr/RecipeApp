@@ -2,10 +2,23 @@
 {
     <ul class="navbar-nav me-0">
         <li class="nav-item dropdown ">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            @*<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 @User.Identity.Name
+            </a>*@
+            <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+               href="#"
+               id="navbarDropdownMenuLink"
+               role="button"
+               data-mdb-toggle="dropdown"
+               aria-expanded="false">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp"
+                     class="rounded-circle"
+                     height="22"
+                     alt="Avatar"
+                     loading="lazy" />
             </a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="navbarDropdownMenuLink">
                 <li><a class="dropdown-item" asp-controller="Member" asp-action="LogOut">Çıkış yap</a></li>
                 <li><a class="dropdown-item" asp-controller="Member" asp-action="Profile">Hesabım</a></li>
 
