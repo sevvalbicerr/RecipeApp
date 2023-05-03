@@ -6,18 +6,36 @@
 @model List<RecipeOutVM>
 <h1>Search Results</h1>
 
-<form method="get" action="Home/Search">
-    <label for="query">Search:</label>
-    <input type="text" name="query" />
-    <button type="submit">Search</button>
-</form>
+
 
 @if (Model.Any())
 {
     <ul>
         @foreach (var recipe in Model)
         {
-            <li><a href="@Url.Action(nameof(recipe), new { id = recipe.Id })">@recipe.Name</a></li>
+          
+            <div class="container bootstrap snippets bootdey">
+                <hr>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="well search-result">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-9 col-md-9 col-lg-10 title">
+                                    <h3>@recipe.Name</h3>
+                                    <p style='float:left;'>
+                                        @(recipe.Description.Length > 100 ? recipe.Description.Substring(0, 100) + "..." : recipe.Description)
+                                       
+                                        </p>
+                                    <form method="post" action="/recipe/details">
+                                        <input type="hidden" name="recipeıd" value="@recipe.Id" />
+                                        <button  class="button-29 float-end type="submit">Detayları Gör</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         }
     </ul>
 }
