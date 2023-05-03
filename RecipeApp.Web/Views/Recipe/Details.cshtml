@@ -1,0 +1,39 @@
+﻿@using System.Security.Claims;
+
+@{
+    ViewData["Title"] = "Details";
+}
+@model RecipeOutVM
+
+<div class="card">
+    <h5 class="card-title">@Model.Name</h5>
+    <img class="card-img-top" src="@Model.Image" alt="Card image cap">
+    <div class="card-body">
+        <div class="card-body">
+            <p class="card-text">Eklenme Tarihi: @Model.CreatedDate</p>
+        </div>
+        <div class="card-body">
+            <form method="post" action="/Favorite/AddToFavorites">
+                <input type="hidden" name="recipeId" value="@Model.Id" />
+                <input type="hidden" name="userId" value="@User.FindFirst(ClaimTypes.NameIdentifier).Value" />
+                <button type="submit">Favorilere Ekle</button>
+            </form>
+
+            <div class="d-flex justify-content-end align-items-center ">
+
+                <div class="ratings  ">
+                    <h5>Puan</h5>
+                    @for (int i = 0; i < Model.Score; i++)
+                    {
+                        <i class="fa fa-star rating-color"></i>
+                    }
+                </div>
+            </div>
+        </div>
+        <h4 class="card-text">Tarif:</h4>
+        <p class="card-text"> @Model.Description</p>
+        <h4 class="card-text">Malzemeler:</h4>
+        <p class="card-text">@Model.Ingredients</p>
+    </div>
+</div>
+

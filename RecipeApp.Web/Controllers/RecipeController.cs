@@ -33,10 +33,6 @@ namespace RecipeApp.Web.Controllers
             return View(await _recipeService.GetAllAsync());
         }
 
-
-
-
-
         public async Task<IActionResult> Save()
         {
             var categories = await _categoryService.GetAllAsync();
@@ -83,7 +79,13 @@ namespace RecipeApp.Web.Controllers
             return View();
         }
 
-       
+        [HttpPost]
+        public async Task<IActionResult> Details(int recipeId)
+        {
+            var recipe=await _recipeService.GetByIdAsync(recipeId);
+            return View(recipe);
+
+        }
     
     }
 }
