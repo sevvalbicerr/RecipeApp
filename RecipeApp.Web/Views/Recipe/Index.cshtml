@@ -20,7 +20,7 @@
                     <form method="post" action="/Favorite/AddToFavorites">
                         <input type="hidden" name="recipeId" value="@item.Id" />
                         <input type="hidden" name="userId" value="@User.FindFirst(ClaimTypes.NameIdentifier).Value" />
-                        <button type="submit">Favorilere Ekle</button>
+                    <button class="btn  px-4 gradient-custom-3" type="submit">Favorilere Ekle</button>
                     </form>
                
                 <div class="d-flex justify-content-end align-items-center ">

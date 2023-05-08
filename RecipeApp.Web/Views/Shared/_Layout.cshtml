@@ -14,28 +14,27 @@
 </head>
 
 <body>
-    <!--Main Navigation-->
     <header>
         <!-- Sidebar -->
-        <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+        <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse gradient-custom-3">
 
             <div class="position-sticky">
 
-                <div class="list-group list-group-flush mx-3 mt-4">
+                <div class="list-group list-group-flush mx-3 mt-4 ">
 
-                    <a class="list-group-item list-group-item-action py-2 ripple" asp-area="" asp-controller="Home" asp-action="Index">
+                    <a class="list-group-item list-group-item-action py-2 ripple gradient-custom-3" asp-area="" asp-controller="Home" asp-action="Index">
                         <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Ana sayfa</span>
                     </a>
-                    <a class="list-group-item list-group-item-action py-2 ripple " asp-controller="Recipe" asp-action="Index">
+                    <a class="list-group-item list-group-item-action py-2 ripple gradient-custom-3" asp-controller="Recipe" asp-action="Index">
                         <i class="fas fa-chart-area fa-fw me-3"></i><span>Yemekler</span>
                     </a>
-                    <a class="list-group-item list-group-item-action py-2 ripple " asp-controller="Recipe" asp-action="Save">
+                    <a class="list-group-item list-group-item-action py-2 ripple gradient-custom-3" asp-controller="Recipe" asp-action="Save">
                         <i class="fas fa-chart-area fa-fw me-3"></i><span>Yemek Ekle</span>
                     </a>
-                    <a class="list-group-item list-group-item-action py-2 ripple " asp-controller="Category" asp-action="Index">
+                    <a class="list-group-item list-group-item-action py-2 ripple gradient-custom-3" asp-controller="Category" asp-action="Index">
                         <i class="fas fa-chart-area fa-fw me-3"></i><span>Kategoriler</span>
                     </a>
-                    <a class="list-group-item list-group-item-action py-2 ripple " asp-controller="Favorite" asp-action="Index">
+                    <a class="list-group-item list-group-item-action py-2 ripple gradient-custom-3" asp-controller="Favorite" asp-action="Index">
                         <i class="fas fa-chart-area fa-fw me-3"></i><span>Favoriler</span>
                     </a>
                 </div>
@@ -50,7 +49,7 @@
                 <form class="d-none d-md-flex input-group w-auto my-auto" method="post" asp-action="Search" asp-controller="Home">
                     <input autocomplete="on" type="text" class="form-control rounded" name="SearchString" 
                            placeholder='Search ' style="min-width: 225px;" />
-                    <button class="input-group-text border-0"><i class="fa fa-search"></i></button>
+                    <button class="input-group-text border-0  gradient-custom-3"><i class="fa fa-search"></i></button>
                 </form>
                
                 <partial name="/Views/Shared/NavbarLogin.cshtml" />

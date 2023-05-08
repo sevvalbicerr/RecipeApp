@@ -20,10 +20,10 @@
                 <td>
                     <form method="post" action="/recipe/details">
                         <input type="hidden" name="recipeId" value="@item.RecipeId" />
-                        <button class="btn btn-warning" type="submit">Tarife git</button>
+                        <button class="btn  px-4 gradient-custom-3" type="submit">Tarife git</button>
                     </form>
                 </td>
-                <td><a class=" btn btn-warning" asp-controller="Favorite" asp-action="Remove" asp-route-id="@item.Id">Favorilerimden Sil</a></td>
+                <td><a class="btn  px-4 gradient-custom-3" asp-controller="Favorite" asp-action="Remove" asp-route-id="@item.Id">Favorilerimden Sil</a></td>
                
             </tr>
         }

@@ -4,17 +4,18 @@
 }
 
 @model List<RecipeOutVM>
-<h1>Search Results</h1>
 
 
 
 @if (Model.Any())
 {
     <ul>
+        <h3>Arama Sonuçları</h3>
+
         @foreach (var recipe in Model)
         {
           
-            <div class="container bootstrap snippets bootdey">
+            <div class="container bootstrap snippets bootdey ">
                 <hr>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -24,11 +25,10 @@
                                     <h3>@recipe.Name</h3>
                                     <p style='float:left;'>
                                         @(recipe.Description.Length > 100 ? recipe.Description.Substring(0, 100) + "..." : recipe.Description)
-                                       
                                         </p>
                                     <form method="post" action="/recipe/details">
                                         <input type="hidden" name="recipeId" value="@recipe.Id" />
-                                        <button  class="button-29 float-end type="submit">Detayları Gör</button>
+                                        <button class="btn ms-5 px-4 gradient-custom-3" type="submit">Detayları Gör</button>
                                     </form>
                                 </div>
                             </div>
