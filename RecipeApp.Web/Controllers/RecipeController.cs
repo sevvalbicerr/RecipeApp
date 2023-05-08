@@ -26,7 +26,7 @@ namespace RecipeApp.Web.Controllers
             _favoriteService = favoriteService;
             _userManager = userManager;
         }
-
+        
         public async Task<IActionResult> Index()
         {
             

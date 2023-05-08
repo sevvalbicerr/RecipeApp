@@ -8,7 +8,6 @@
 
     <thead>
         <tr>
-            <td>Yemek Id:</td>
             <td>Yemek Adı</td>
 
         </tr>
@@ -18,7 +17,12 @@
         {
             <tr>
                 <td>@item.Recipe.Name</td>
-                <td><a class=" btn btn-warning" asp-controller="Recipe" asp-action="Index" asp-route-id="@item.RecipeId">Tarife git</a></td>
+                <td>
+                    <form method="post" action="/recipe/details">
+                        <input type="hidden" name="recipeId" value="@item.RecipeId" />
+                        <button class="btn btn-warning" type="submit">Tarife git</button>
+                    </form>
+                </td>
                 <td><a class=" btn btn-warning" asp-controller="Favorite" asp-action="Remove" asp-route-id="@item.Id">Favorilerimden Sil</a></td>
                
             </tr>

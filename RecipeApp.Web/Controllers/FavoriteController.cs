@@ -55,6 +55,7 @@ namespace RecipeApp.Web.Controllers
                     TempData["Message"] = "Tarif zaten favorilerinizde!";
                 }
             }
+            //TODO: Şurada favorilerin index'ine değil de recipe controller index'e yönlendirmem lazım.
             return RedirectToAction(nameof(Index));
         }
 
