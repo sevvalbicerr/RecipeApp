@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RecipeApp.InMemoryCache\RecipeApp.InMemoryCache.csproj" />
     <ProjectReference Include="..\RecipeApp.Service\RecipeApp.Service.csproj" />
   </ItemGroup>
 
