@@ -7,6 +7,7 @@ using RecipeApp.Dal.DbContexts;
 using RecipeApp.Web.Modules;
 using System.Reflection;
 using NLayer.Service.Mapping;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,6 +27,7 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder => containerBuilder.RegisterModule(new RepoServiceModule()));
 builder.Services.AddAutoMapper(typeof(MapProfile));
 builder.Services.AddIdentityWithExt();
+builder.Services.AddMemoryCache();
 
 builder.Services.ConfigureApplicationCookie(opt =>
 {

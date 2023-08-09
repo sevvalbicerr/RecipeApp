@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeApp.Web", "RecipeApp.Web\RecipeApp.Web.csproj", "{BDC35730-24E4-4F39-8C0B-9BD444DCA363}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeApp.Web", "RecipeApp.Web\RecipeApp.Web.csproj", "{BDC35730-24E4-4F39-8C0B-9BD444DCA363}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeApp.Core", "RecipeApp.Core\RecipeApp.Core.csproj", "{77F68E63-3A70-426B-9784-31E8E94CBD9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeApp.Core", "RecipeApp.Core\RecipeApp.Core.csproj", "{77F68E63-3A70-426B-9784-31E8E94CBD9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeApp.Dal", "RecipeApp.Dal\RecipeApp.Dal.csproj", "{8113EEDF-56B4-473C-B91E-1A8BE7A2573D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeApp.Dal", "RecipeApp.Dal\RecipeApp.Dal.csproj", "{8113EEDF-56B4-473C-B91E-1A8BE7A2573D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeApp.Service", "RecipeApp.Service\RecipeApp.Service.csproj", "{C1B601E0-D8EF-4004-8D48-153EE1C7A121}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeApp.Service", "RecipeApp.Service\RecipeApp.Service.csproj", "{C1B601E0-D8EF-4004-8D48-153EE1C7A121}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeApp.InMemoryCache", "RecipeApp.InMemoryCache\RecipeApp.InMemoryCache.csproj", "{60BAA32A-E6D4-4D44-8388-1ACB0756E8DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{C1B601E0-D8EF-4004-8D48-153EE1C7A121}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1B601E0-D8EF-4004-8D48-153EE1C7A121}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1B601E0-D8EF-4004-8D48-153EE1C7A121}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60BAA32A-E6D4-4D44-8388-1ACB0756E8DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60BAA32A-E6D4-4D44-8388-1ACB0756E8DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60BAA32A-E6D4-4D44-8388-1ACB0756E8DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60BAA32A-E6D4-4D44-8388-1ACB0756E8DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

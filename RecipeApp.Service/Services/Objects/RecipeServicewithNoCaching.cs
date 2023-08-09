@@ -16,10 +16,10 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace RecipeApp.Service.Services.Objects
 {
-    public class RecipeService : Service<Recipe, RecipeOutVM>, IRecipeService
+    public class RecipeServicewithNoCaching : Service<Recipe, RecipeOutVM>, IRecipeService
     {
         private readonly IRecipeRepository _recipeRepository;
-        public RecipeService(IRepository<Recipe> repository, IMapper mapper, IRecipeRepository recipeRepository) : base(repository, mapper)
+        public RecipeServicewithNoCaching(IRepository<Recipe> repository, IMapper mapper, IRecipeRepository recipeRepository) : base(repository, mapper)
         {
             _recipeRepository = recipeRepository;
         }
