@@ -6,6 +6,7 @@ using RecipeApp.Core.Services.Interfaces;
 using RecipeApp.Dal.DbContexts;
 using RecipeApp.Dal.Repositories.Base;
 using RecipeApp.InMemoryCache;
+using RecipeApp.RedisCache;
 using RecipeApp.Service.Services.Base;
 using RecipeApp.Service.Services.Objects;
 using System.Reflection;
@@ -23,8 +24,10 @@ namespace RecipeApp.Web.Modules
             var repositoryAssembly = Assembly.GetAssembly(typeof(AppDbContext));
             var serviceAssembly = Assembly.GetAssembly(typeof(RecipeServicewithNoCaching));
 
-            builder.RegisterType<RecipeServiceWithCaching>().As<IRecipeService>();
+            //builder.RegisterType<RecipeServiceWithCaching>().As<IRecipeService>();
             //builder.RegisterType<RecipeServicewithNoCaching>().As<IRecipeService>();
+            builder.RegisterType<RecipeServicewithRedis>().As<IRecipeService>();
+
 
             builder.RegisterAssemblyTypes(apiAssembly, serviceAssembly, repositoryAssembly).Where(x => x.Name.EndsWith("Repository")).AsImplementedInterfaces().InstancePerLifetimeScope();
 

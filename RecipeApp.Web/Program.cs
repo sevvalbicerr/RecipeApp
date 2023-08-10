@@ -8,6 +8,7 @@ using RecipeApp.Web.Modules;
 using System.Reflection;
 using NLayer.Service.Mapping;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +29,12 @@ builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder => containerB
 builder.Services.AddAutoMapper(typeof(MapProfile));
 builder.Services.AddIdentityWithExt();
 builder.Services.AddMemoryCache();
+
+builder.Services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect("localhost"));
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = "localhost";
+});
 
 builder.Services.ConfigureApplicationCookie(opt =>
 {

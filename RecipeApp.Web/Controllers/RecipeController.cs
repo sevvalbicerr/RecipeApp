@@ -29,7 +29,7 @@ namespace RecipeApp.Web.Controllers
         
         public async Task<IActionResult> Index()
         {
-            
+           
             return View(await _recipeService.GetAllAsync());
         }
 

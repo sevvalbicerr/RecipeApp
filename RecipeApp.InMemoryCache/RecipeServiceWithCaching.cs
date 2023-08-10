@@ -31,7 +31,8 @@ namespace RecipeApp.InMemoryCache
             _recipeRepository = recipeRepository;
             if (!_cache.TryGetValue(CacheKey, out _))
             {
-                _cache.Set(CacheKey, _recipeRepository.GetAllRecipeWithOrderedByDesc());
+                var recipeOut = _mapper.Map<IEnumerable<RecipeOutVM>>(_recipeRepository.GetAllRecipeWithOrderedByDesc());
+                _cache.Set(CacheKey,recipeOut );
             }
         }
 
@@ -52,8 +53,17 @@ namespace RecipeApp.InMemoryCache
 
         public Task<IEnumerable<RecipeOutVM>> GetAllAsync()
         {
+            //TODO: Bug to get data from cache
+
             return Task.FromResult(_cache.Get<IEnumerable<RecipeOutVM>>(CacheKey));
         }
+        public IEnumerable<RecipeOutVM> GetAll()
+        {
+            var recipeOutVM = _mapper.Map<IEnumerable<RecipeOutVM>>(_cache.Get(CacheKey));
+
+            return recipeOutVM;
+        }
+
 
         public Task<RecipeOutVM> GetByIdAsync(int id)
         {
