@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeApp.Dal", "RecipeApp.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeApp.Service", "RecipeApp.Service\RecipeApp.Service.csproj", "{C1B601E0-D8EF-4004-8D48-153EE1C7A121}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeApp.InMemoryCache", "RecipeApp.InMemoryCache\RecipeApp.InMemoryCache.csproj", "{60BAA32A-E6D4-4D44-8388-1ACB0756E8DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeApp.InMemoryCache", "RecipeApp.InMemoryCache\RecipeApp.InMemoryCache.csproj", "{60BAA32A-E6D4-4D44-8388-1ACB0756E8DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeApp.RedisCache", "RecipeApp.RedisCache\RecipeApp.RedisCache.csproj", "{BC29B28C-FABD-4CC0-A5E0-B11D580F34BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{60BAA32A-E6D4-4D44-8388-1ACB0756E8DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60BAA32A-E6D4-4D44-8388-1ACB0756E8DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60BAA32A-E6D4-4D44-8388-1ACB0756E8DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC29B28C-FABD-4CC0-A5E0-B11D580F34BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC29B28C-FABD-4CC0-A5E0-B11D580F34BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC29B28C-FABD-4CC0-A5E0-B11D580F34BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC29B28C-FABD-4CC0-A5E0-B11D580F34BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
