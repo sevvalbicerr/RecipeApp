@@ -7,10 +7,19 @@ using System.Threading.Tasks;
 
 namespace RecipeApp.Core.ViewModels.OutViewModels
 {
-    public class RecipeOutVM:Recipe
+    public class RecipeOutVM
     {
-       
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string Image { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public int Score { get; set; }
 
-     
+
+        public string Ingredients { get; set; }
+        
+
+
     }
 }
