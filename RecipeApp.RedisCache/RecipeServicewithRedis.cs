@@ -44,7 +44,7 @@ namespace RecipeApp.RedisCache
           
             if (string.IsNullOrEmpty(_db.StringGet(CacheKey)))
             {
-                var jsondata = JsonConvert.SerializeObject(_repository.GetAllRecipeWithOrderedByDesc(),settings);
+                var jsondata = JsonConvert.SerializeObject(_repository.GetAllRecipesInOrderByDateDesc(),settings);
                 _db.StringSet(CacheKey, jsondata);
             }
             _mapper = mapper;
@@ -94,15 +94,15 @@ namespace RecipeApp.RedisCache
         {
             throw new NotImplementedException();
         }
-        public List<RecipeOutVM> GetRecipeOrderByDesc()
+        public List<RecipeOutVM> GetAllRecipesInOrderByDateDesc()
         {
-            var entities = _repository.GetAllRecipeWithOrderedByDesc();
+            var entities = _repository.GetAllRecipesInOrderByDateDesc();
             CacheAllRecipes();
             var entitiesVM = _mapper.Map<List<RecipeOutVM>>(entities);
             return entitiesVM;
         }
 
-        public Task<List<RecipeOutVM>> GetRecipewithFilter(string SearchString)
+        public Task<List<RecipeOutVM>> GetRecipeWithFilter(string SearchString)
         {
             throw new NotImplementedException();
         }
@@ -120,7 +120,7 @@ namespace RecipeApp.RedisCache
        
         public void CacheAllRecipes()
         {
-            var jsondata = JsonConvert.SerializeObject(_repository.GetAllRecipeWithOrderedByDesc(), settings);
+            var jsondata = JsonConvert.SerializeObject(_repository.GetAllRecipesInOrderByDateDesc(), settings);
             _db.StringSet(CacheKey, jsondata);
         }
     }

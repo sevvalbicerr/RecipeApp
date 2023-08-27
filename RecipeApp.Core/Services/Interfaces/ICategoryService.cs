@@ -11,7 +11,7 @@ namespace RecipeApp.Core.Services.Interfaces
 {
     public interface ICategoryService:IService<Category,CategoryOutVM>
     {
-        Task<CategoryOutVM> GetSingleCategoryByIdWithProducts(int categoryId);
+        Task<CategoryOutVM> GetSingleCategoryByIdWithRecipes(int categoryId);
 
     }
 }

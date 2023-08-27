@@ -20,7 +20,7 @@ namespace RecipeApp.Dal.Repositories.Objects
             
         }
 
-        public IEnumerable<Recipe> GetAllRecipeWithOrderedByDesc()
+        public IEnumerable<Recipe> GetAllRecipesInOrderByDateDesc()
         {
             return _dbContext.Recipes.Include(r => r.Category).Include(r => r.User).OrderByDescending(r => r.CreatedDate).ToList();
         }

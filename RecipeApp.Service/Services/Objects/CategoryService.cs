@@ -20,7 +20,7 @@ namespace RecipeApp.Service.Services.Objects
         {
             _categoryRepository = categoryRepository;
         }
-        public async Task<CategoryOutVM> GetSingleCategoryByIdWithProducts(int categoryId)
+        public async Task<CategoryOutVM> GetSingleCategoryByIdWithRecipes(int categoryId)
         {
             var category = await _categoryRepository.GetSingleCategoryByIdWithProducts(categoryId);
             var categoryDTO = _mapper.Map<CategoryOutVM>(category);

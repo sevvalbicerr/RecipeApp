@@ -21,16 +21,16 @@ namespace RecipeApp.Service.Services.Objects
             _favoriteRepository = favoriteRepository;
         }
 
-        public async Task<IEnumerable<FavoriteOutVM>> GetAllfavoriteswithRecipe()
+        public async Task<IEnumerable<FavoriteOutVM>> GetAllFavoritesWithRecipe()
         {
-            var fav=await _favoriteRepository.GetAllfavoriteswithRecipe();
+            var fav=await _favoriteRepository.GetAllFavoritesWithRecipe();
             var favVm= _mapper.Map<IEnumerable<FavoriteOutVM>>(fav);
             return favVm;
         }
 
-        public FavoriteOutVM GetByRecipeAndUser(int recipeId, string UserId)
+        public FavoriteOutVM GetFavoriteWithRecipeAndUser(int recipeId, string UserId)
         {
-          var fav= _favoriteRepository.GetByRecipeAndUser(recipeId, UserId);
+          var fav= _favoriteRepository.GetFavoriteWithRecipeAndUser(recipeId, UserId);
             var FavVM=_mapper.Map<FavoriteOutVM>(fav);
             return FavVM;
 

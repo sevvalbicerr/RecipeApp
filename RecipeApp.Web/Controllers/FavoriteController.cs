@@ -22,7 +22,7 @@ namespace RecipeApp.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await _favoriteService.GetAllfavoriteswithRecipe());
+            return View(await _favoriteService.GetAllFavoritesWithRecipe());
         }
 
         [HttpPost]
@@ -32,14 +32,14 @@ namespace RecipeApp.Web.Controllers
             //TODO: Favoriler kişiye özel değil. bug
             var recipe = await _recipeService.GetByIdAsync(recipeId);
             var user = userId;
-
+            //TODO burada koşullu yapıyı düzenleyerek daha sade hale getirebilirim. 
             if (recipe == null)
             {
                 return NotFound();
             }
             if (User.Identity.IsAuthenticated)
             {
-                var favorite = _favoriteService.GetByRecipeAndUser(recipeId , userId);
+                var favorite = _favoriteService.GetFavoriteWithRecipeAndUser(recipeId , userId);
                 if(favorite == null)
                 {
                     var favoriteVM = new FavoriteOutVM

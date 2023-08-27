@@ -12,7 +12,7 @@ namespace RecipeApp.Core.Services.Interfaces
 {
     public interface IFavoriteService:IService<Favorite,FavoriteOutVM>
     {
-        FavoriteOutVM GetByRecipeAndUser(int recipeId,string UserId);
-        Task<IEnumerable<FavoriteOutVM>> GetAllfavoriteswithRecipe();
+        FavoriteOutVM GetFavoriteWithRecipeAndUser(int recipeId,string UserId);
+        Task<IEnumerable<FavoriteOutVM>> GetAllFavoritesWithRecipe();
     }
 }

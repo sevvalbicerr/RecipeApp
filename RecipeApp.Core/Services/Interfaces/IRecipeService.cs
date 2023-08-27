@@ -14,10 +14,10 @@ namespace RecipeApp.Core.Services.Interfaces
     {
         Task<RecipeOutVM> AddAsync(RecipeAddViewModel dto);
 
-        List<RecipeOutVM> GetRecipeOrderByDesc();
+        List<RecipeOutVM> GetAllRecipesInOrderByDateDesc();
 
 
-        Task<List<RecipeOutVM>> GetRecipewithFilter(string SearchString);
+        Task<List<RecipeOutVM>> GetRecipeWithFilter(string SearchString);
 
     }
 }

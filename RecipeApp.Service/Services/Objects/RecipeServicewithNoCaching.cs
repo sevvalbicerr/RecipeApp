@@ -33,14 +33,14 @@ namespace RecipeApp.Service.Services.Objects
             return entityVm;
         }
 
-        public List<RecipeOutVM> GetRecipeOrderByDesc()
+        public List<RecipeOutVM> GetAllRecipesInOrderByDateDesc()
         {
-            var entities =  _recipeRepository.GetAllRecipeWithOrderedByDesc();
+            var entities =  _recipeRepository.GetAllRecipesInOrderByDateDesc();
             var entitiesVM = _mapper.Map<List<RecipeOutVM>>(entities);
             return entitiesVM;
         }
 
-        public async Task<List<RecipeOutVM>> GetRecipewithFilter(string SearchString)
+        public async Task<List<RecipeOutVM>> GetRecipeWithFilter(string SearchString)
         {
             if (string.IsNullOrWhiteSpace(SearchString))
             {

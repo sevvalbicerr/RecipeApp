@@ -17,12 +17,12 @@ namespace RecipeApp.Dal.Repositories.Objects
         {
         }
 
-        public Favorite GetByRecipeAndUser(int recipeId, string UserId)
+        public Favorite GetFavoriteWithRecipeAndUser(int recipeId, string UserId)
         {
             return _dbContext.Favorites.FirstOrDefault(f => f.RecipeId == recipeId && f.UserId == UserId);
         }
 
-        public async Task<IEnumerable<Favorite>> GetAllfavoriteswithRecipe()
+        public async Task<IEnumerable<Favorite>> GetAllFavoritesWithRecipe()
         {
            return await _dbContext.Favorites.Include(x => x.Recipe).ToListAsync(); 
              

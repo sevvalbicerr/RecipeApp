@@ -26,7 +26,7 @@ namespace RecipeApp.Web.Controllers
 
         public IActionResult Index()
         {
-            return View(_recipeService.GetRecipeOrderByDesc());
+            return View(_recipeService.GetAllRecipesInOrderByDateDesc());
         }
 
         public IActionResult Privacy()
@@ -103,7 +103,7 @@ namespace RecipeApp.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Search(string SearchString)
         {
-            return View(await _recipeService.GetRecipewithFilter(SearchString));
+            return View(await _recipeService.GetRecipeWithFilter(SearchString));
         }
        
 

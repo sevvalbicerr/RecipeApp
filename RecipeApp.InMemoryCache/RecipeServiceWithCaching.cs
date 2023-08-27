@@ -31,7 +31,7 @@ namespace RecipeApp.InMemoryCache
             _recipeRepository = recipeRepository;
             if (!_cache.TryGetValue(CacheKey, out _))
             {
-                var recipeOut = _mapper.Map<IEnumerable<RecipeOutVM>>(_recipeRepository.GetAllRecipeWithOrderedByDesc());
+                var recipeOut = _mapper.Map<IEnumerable<RecipeOutVM>>(_recipeRepository.GetAllRecipesInOrderByDateDesc());
                 _cache.Set(CacheKey,recipeOut );
             }
         }
@@ -75,15 +75,15 @@ namespace RecipeApp.InMemoryCache
             return Task.FromResult(recipe);
         }
 
-        public List<RecipeOutVM> GetRecipeOrderByDesc()
+        public List<RecipeOutVM> GetAllRecipesInOrderByDateDesc()
         {
-            var entities = _recipeRepository.GetAllRecipeWithOrderedByDesc();
+            var entities = _recipeRepository.GetAllRecipesInOrderByDateDesc();
             CacheAllRecipesAsync();
             var entitiesVM = _mapper.Map<List<RecipeOutVM>>(entities);
             return entitiesVM;
         }
 
-        public Task<List<RecipeOutVM>> GetRecipewithFilter(string SearchString)
+        public Task<List<RecipeOutVM>> GetRecipeWithFilter(string SearchString)
         {
             throw new NotImplementedException();
         }
