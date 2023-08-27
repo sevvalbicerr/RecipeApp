@@ -8,7 +8,6 @@ namespace RecipeApp.Core.Repositories.Base
         void UpdateAsync(T entity);
         void DeleteAsync(T entity);
         IQueryable<T> GetAll();
-        //Buna belki gerek yoktur emin değilim.
         Task<T> GetByIdAsync(int id);
 
         Task<IEnumerable<T>> WhereAsync(Expression<Func<T,bool>> expression);

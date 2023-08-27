@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using RecipeApp.Core.Models;
+using RecipeApp.Core.Models.Base;
 using RecipeApp.Core.Repositories.Base;
 using RecipeApp.Core.Services.Base;
 using RecipeApp.Core.ViewModels;

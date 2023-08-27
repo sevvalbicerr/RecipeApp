@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RecipeApp.Core.Models.Base;
 
 namespace RecipeApp.Core.Models
 {
-	public class Recipe:BaseEntity
+    public class Recipe:BaseEntity
 	{
         public string Name { get; set; }
 		public string Description { get; set; }

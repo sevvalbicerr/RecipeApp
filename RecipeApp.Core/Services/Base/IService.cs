@@ -1,4 +1,4 @@
-﻿using RecipeApp.Core.Models;
+﻿using RecipeApp.Core.Models.Base;
 using RecipeApp.Core.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,6 @@ namespace RecipeApp.Core.Services.Base
         Task<NoContentViewModel> UpdateAsync(OutT entity);
         Task DeleteAsync(int id);
         Task<IEnumerable<OutT>> GetAllAsync();
-        //Buna belki gerek yoktur emin değilim.
         Task<OutT> GetByIdAsync(int id);
 
         Task<IQueryable<OutT>> WhereAsync(Expression<Func<InT, bool>> expression);
